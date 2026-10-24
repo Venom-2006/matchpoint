@@ -5,6 +5,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 
 import healthRoutes from "./routes/healthRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+
 import { notFoundMiddleware } from "./middleware/notFoundMiddleware.js";
 import { errorMiddleware } from "./middleware/errorMiddleware.js";
 import { env } from "./config/env.js";
@@ -28,6 +30,7 @@ if (env.nodeEnv !== "test") {
 }
 
 app.use("/api/health", healthRoutes);
+app.use("/api/auth", authRoutes);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
