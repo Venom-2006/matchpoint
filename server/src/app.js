@@ -6,6 +6,7 @@ import morgan from "morgan";
 
 import healthRoutes from "./routes/healthRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import portfolioRoutes from "./routes/portfolioRoutes.js";
 
 import { notFoundMiddleware } from "./middleware/notFoundMiddleware.js";
 import { errorMiddleware } from "./middleware/errorMiddleware.js";
@@ -31,6 +32,7 @@ if (env.nodeEnv !== "test") {
 
 app.use("/api/health", healthRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/portfolio", portfolioRoutes);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
